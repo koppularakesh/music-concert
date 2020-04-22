@@ -1,0 +1,246 @@
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Stalinist+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+body{
+  background-image: url("bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+}
+.mobile-container {
+  max-width: 100%;
+  margin: auto;
+  color: white;
+}
+.overlay{
+width:100%;
+height:93%;
+position:absolute;
+background-color:black;
+opacity:0.7;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #004d1a;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: #004d1a;
+  display: block;
+  position: absolute;
+  right: 0;
+  height:58px;
+  top: 0;
+}
+.topnav a.icon:hover {
+  background: #004d1a;
+  color:white;
+}
+.topnav a:hover {
+  background-color: #006622;
+  transform:scale(0.97);
+  transition:all 0.5s;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+  cursor:default;
+  height:50px;
+  font-weight:bold;
+  padding-left:76px !important;
+  font-family: 'Stalinist One', cursive;
+  font-size:20px !important;
+}
+.active:hover{
+  background-color: #4CAF50 !important;
+  color: white !important;
+  transform:scale(1) !important;
+}
+.box{
+text-align:center;
+padding:20px;
+color:black;
+}
+.fa-user{
+font-size:60px;
+color:white;
+}
+.textbox{
+text-align:center;
+}
+input[type=submit]{
+color:black;
+outline:none !important;
+}
+.textbox{
+border:none;
+width:250px;
+margin-bottom:10px;
+outline:none;
+padding:5px;
+border-radius:5px;
+}
+.textbox:hover{
+box-shadow:inset 0px 0px 5px grey;
+}
+p{
+color:white;
+}
+input[type=radio]{
+font-size:30px !important;
+}
+.img{
+margin-top:-10px;
+}
+.guitarspace{
+padding-left:100px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
+
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <a href="#home" class="active"> Rock & Roll</a>
+  <div id="myLinks">
+      <a href="index.php">Home</a>
+      <a href="about.html">About</a>
+      <a href="register.html">Register</a>
+      <a href="login.php" id="signin">Login</a>
+      <a href="#signout" id="signout" onclick="signout()">Signout</a>
+    </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i id="icon" class="fa fa-bars"></i>
+  </a>
+</div>
+<div class="overlay">
+</div>
+<div class="col-lg-3 guitarspace">
+	<img src="guitor.png" ></img>
+</div>
+<div class="box col-lg-9">
+	<i class="fa fa-user" aria-hidden="true"></i>
+	<br><br>
+	
+	<form id="f1">
+		<input type="text" name="name" id="name" class="textbox" placeholder="Name" required><br>
+		<input type="text" name="username" id="username" class="textbox" placeholder="Username/Email" required><br>
+		<input type="password" name="pass" id="pass" class="textbox" placeholder="Password" required><br>
+		
+		<input type="tel" name="mobile" id="mobile" class="textbox" placeholder="Mobile"><br>
+		<p>Male &nbsp <input type="radio" class="gender" name="gender" value="M" checked>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		Female &nbsp <input type="radio" class="gender" name="gender" value="F"></p>
+		<textarea class="textbox" name="address" id="addr" placeholder="Address"></textarea><br>
+		<input type="submit" value="Register" onclick="reg()" class="btn btn-success" style="color:white">
+	</form>
+</div>
+
+<!-- End smartphone / tablet look -->
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    $('#myLinks').hide(500);
+	$("#icon").toggleClass("fa-times");
+	$("#icon").toggleClass("fa-bars");
+  } else {
+    $('#myLinks').show(500);
+	$("#icon").toggleClass("fa-times");
+	$("#icon").toggleClass("fa-bars");
+  }
+}
+function reg()
+{
+   if($("#name").val() === "" || $("#username").val() === "" || $("#pass").val() === "" || $("#mobile").val() === "" || $("#addr").val() === "")
+        alert("Please fill required fields");
+    else
+        reg2();
+}
+function reg2()
+{
+	
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		
+		alert(this.responseText);   
+		if(this.responseText !== "Registered Successfully"){}
+		else
+		    window.location = "login.php";
+    }
+                           
+    };
+	var values = $('#f1').serialize();
+    xmlhttp.open("GET", "register.php?"+values, true);
+    xmlhttp.send();
+	//xmlhttp.open("POST", "register.php", true);
+    //xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	//xmlhttp.send(values);
+
+}
+function signout()
+				{
+					alert("Confirm logout ?");
+					document.cookie="username=no";
+					$('#signout').hide();
+					$('#signin').show();
+				}
+				if(getCookie("username")!="no"){
+				    $('#signout').show();
+					$('#signin').hide();
+				}
+				else{
+				    $('#signout').hide();
+					$('#signin').show();
+				}
+        function getCookie(cname) {
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for(var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+					}
+
+				    if(c.indexOf(name) == 0) {
+				    	return c.substring(name.length, c.length);
+				    }
+				    }
+				    return null;
+				}
+</script>
+
+</body>
+</html>

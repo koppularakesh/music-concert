@@ -1,0 +1,97 @@
+.mobile-container {
+    max-width: 100%;
+    margin: auto;
+    background-color: #555;
+    height: 100%;
+    color: white;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+  }
+  
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  .topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  .topnav a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    height:52px;
+    top: 0;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+    color: white;
+    cursor:default;
+    height:50px;
+    font-weight:bold;
+    padding-left:76px !important;
+    font-family: 'Stalinist One', cursive;
+    font-size:20px !important;
+  }
+  .active:hover{
+    background-color: #4CAF50 !important;
+    color: white !important;
+    
+  }
+  .box{
+  text-align:center;
+  padding:20px;
+  color:black;
+  }
+  .fa-user{
+  font-size:60px;
+  color:white;
+  }
+  .textbox{
+  text-align:center;
+  }
+  input[type=submit]{
+  color:black;
+  outline:none !important;
+  }
+  .textbox{
+  border:none;
+  width:250px;
+  margin-bottom:10px;
+  outline:none;
+  padding:5px;
+  border-radius:5px;
+  }
+  .textbox:hover{
+  box-shadow:inset 0px 0px 5px grey;
+  }
+  p{
+  color:white;
+  }
+  input[type=radio]{
+  font-size:30px !important;
+  }
+  .img{
+  margin-top:-10px;
+  }
+  .guitarspace{
+  padding-left:100px;
+  }
+  .udne{
+  display:none;
+  }
